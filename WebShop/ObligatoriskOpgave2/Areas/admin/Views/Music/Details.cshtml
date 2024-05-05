@@ -1,0 +1,36 @@
+﻿@using ObligatoriskOpgave2.Models
+@model ObligatoriskOpgave2.Models.Music
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Music = Model;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Music</h4>
+    <hr />
+    @helper RenderMusic(Music mu)
+    {
+
+        <div>
+            <strong>Title:</strong> @mu.Title<br />
+            <strong>Artist:</strong> @mu.Artist<br />
+            <strong>Price:</strong> @mu.Price DKK<br />
+            <textarea cols="40" rows="12" disabled="disabled" style = "resize:none"> @mu.Info</textarea><br />
+            <strong>Genre:</strong> @mu.Genre <br /> <br />
+            <img src="~/Images/@mu.Pic" height="400" />
+        </div>
+        <div>
+            <strong>Stock:</strong> @mu.StockStatus<br />
+            <strong>Quantity:</strong> @mu.Quantity<br />
+        </div>
+    }
+
+    @RenderMusic(this.ViewBag.Music)
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

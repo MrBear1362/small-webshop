@@ -1,0 +1,35 @@
+﻿@using ObligatoriskOpgave2.Models
+@model ObligatoriskOpgave2.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Book = Model;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Book</h4>
+    @helper RenderBook(Book book)
+    {
+
+        <div>
+            <strong>Title:</strong> @book.Title<br />
+            <strong>Author:</strong> @book.Author<br />
+            <strong>Price:</strong> @book.Price DKK<br />
+            <strong>Pages:</strong> @book.Pages<br />
+            <strong>Publisher:</strong> @book.Publisher <br /> <br />
+            <img src="~/Images/@book.Pic" height="400" />
+        </div>
+        <div>
+            <strong>Stock:</strong> @book.StockStatus<br />
+            <strong>Quantity:</strong> @book.Quantity<br />
+        </div>
+    }
+
+    @RenderBook(this.ViewBag.book)
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

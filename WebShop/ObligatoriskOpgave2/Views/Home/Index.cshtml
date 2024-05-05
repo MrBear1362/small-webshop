@@ -1,0 +1,48 @@
+﻿@model ObligatoriskOpgave2.Models.Product
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>BearWebShop</h1>
+
+</div>
+
+<div class="row">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <div class="col-md-pull-2">
+
+            <b> Search Option: </b> @Html.EnumDropDownListFor(model => model.Type, new { @class = "form-control" })
+        </div>
+        <div class="navbar-text">
+            @Html.Label("Search: ")
+            @Html.TextBox("search")
+            <input type="submit" name="submit" value="Search" />
+        </div>
+
+    }
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Welcome to BearWebShop</h2>
+        <p>
+            BearWebShop is a new WebShop created by the amazing Bjørn Werner from Denmark! Here you can buy a variation of products for a beary fair price!
+        </p>
+        <p><a class="btn btn-default" href="~/Home/About">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>On Sale!</h2>
+        <img src="~/Images/Thriller.jpg" height="300" />
+        <p><a class="btn btn-default" href="~/Home/MusicIndex">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>All new Items!</h2>
+        <img src="~/Images/PerksOfBeingAWall.jpg" height="300" />
+        <p><a class="btn btn-default" href="~/Home/BookIndex">Learn more &raquo;</a></p>
+    </div>
+</div>

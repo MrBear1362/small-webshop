@@ -1,0 +1,35 @@
+﻿@using ObligatoriskOpgave2.Models
+@model ObligatoriskOpgave2.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Product = Model;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    @helper RenderMovie(Product p)
+    {
+
+        <div>
+            <strong>Title:</strong> @p.Title<br />
+            <strong>StockStatus:</strong> @p.StockStatus<br />
+            <strong>Quantity:</strong> @p.Quantity<br />
+            <strong>Type:</strong> @p.Type<br />
+            <strong>TypeVariation:</strong> @p.TypeVariation <br /> <br />
+            <img src="~/Images/@p.Pic" height="400" />
+        </div>
+        <div>
+            <strong>Price:</strong> @p.Price DKK<br />
+        </div>
+    }
+
+    @RenderMovie(this.ViewBag.Product)
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

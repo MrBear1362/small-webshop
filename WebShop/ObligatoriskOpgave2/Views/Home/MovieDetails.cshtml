@@ -1,0 +1,31 @@
+﻿@using ObligatoriskOpgave2.Models
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.Movie = Model;
+}
+
+<h2>Details</h2>
+
+@helper RenderMovie(Movie mo)
+{
+
+    <div>
+        <strong>Title:</strong> @mo.Title<br />
+        <strong>Director:</strong> @mo.Director<br />
+        <strong>Price:</strong> @mo.Price DKK<br />
+        <strong>Release Date:</strong> @mo.ReleaseDate<br />
+        <strong>Type:</strong> @mo.TypeVariation <br /> <br />
+        <img src="~/Images/@mo.Pic" height="400" />
+    </div>
+    <div>
+        <strong>Stock:</strong> @mo.StockStatus<br />
+        <strong>Quantity:</strong> @mo.Quantity<br />
+    </div>
+}
+
+@RenderMovie(this.ViewBag.Movie)
+
+<p>
+    @Html.ActionLink("Back to List", "MovieIndex")
+</p>
